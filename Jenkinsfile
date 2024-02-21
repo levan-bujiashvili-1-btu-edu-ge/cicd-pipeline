@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         NODEJS_HOME = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+        NODEJS_BIN = "${NODEJS_HOME}/bin"
     }
 
     stages {
@@ -17,7 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh "${NODEJS_HOME}/bin/npm install"
+                    sh "${NODEJS_BIN}/npm install"
                 }
             }
         }
